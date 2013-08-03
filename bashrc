@@ -111,6 +111,13 @@ if [ -f ~/.bash_completion ]; then
         . ~/.bash_completion
 fi
 
+#-------------------------------------------------------------
+# Source bash profile (if any)
+#-------------------------------------------------------------
+if [ -f ~/.bash_profile ]; then
+        . ~/.bash_profile
+fi
+
 # Local Variables:
 # mode:shell-script
 # sh-shell:bash

@@ -59,7 +59,7 @@ export HISTTIMEFORMAT="%H:%M > "
 export HISTIGNORE="&:bg:fg:ll:h"
 export HOSTFILE=$HOME/.hosts    # Put list of remote hosts in ~/.hosts ...
 
-export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools
+export PATH=$PATH:/home/$USER/android-sdk-linux/tools:/home/$USER/android-sdk-linux/platform-tools:/home/$USER/apps/appengine-java-sdk-1.9.25/bin:/home/$USER/apps/apache-maven-3.3.3/bin:/home/$USER/apps/scala/scala-2.11.7/bin:/home/$USER/apps/scala/sbt/bin
 
 #-------------------------------------------------------------
 # Greeting, motd etc...
@@ -84,13 +84,6 @@ if [ -x /usr/games/fortune ]; then
     /usr/games/fortune -s     # Makes our day a bit more fun.... :-)
 fi
 
-function _exit()        # Function to run upon exit of shell.
-{
-    echo -e "${RED}Hasta la vista, baby${NC}"
-}
-trap _exit EXIT
-
-
 #-------------------------------------------------------------
 # Shell Prompt
 #-------------------------------------------------------------
@@ -111,14 +104,21 @@ if [ -f ~/.bash_completion ]; then
         . ~/.bash_completion
 fi
 
-#-------------------------------------------------------------
-# Source bash profile (if any)
-#-------------------------------------------------------------
-if [ -f ~/.bash_profile ]; then
-        . ~/.bash_profile
-fi
-
 # Local Variables:
 # mode:shell-script
 # sh-shell:bash
 # Ent:
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# i3 commands for development
+alias webdev="i3-msg 'workspace 2 : dev; append_layout /home/$USER/.i3/workspace-dev.json; exec /home/jlemos/apps/Sublime\ Text\ 2/sublime_text; exec firefox; exec i3-sensible-terminal \"$PWD\"; exec i3-sensible-terminal \"$PWD\";'"
+alias web="i3-msg 'workspace 3 : web; exec firefox;'"
+alias mail="i3-msg 'workspace 4 : mail; exec thunderbird;'"
+
+# Cpan
+PATH="/home/jlemos/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/jlemos/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jlemos/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jlemos/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jlemos/perl5"; export PERL_MM_OPT;

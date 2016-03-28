@@ -122,3 +122,14 @@ PERL5LIB="/home/jlemos/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB
 PERL_LOCAL_LIB_ROOT="/home/jlemos/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/jlemos/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jlemos/perl5"; export PERL_MM_OPT;
+
+# Openjdk
+export SOURCE_CODE=$HOME/projects/openjdk
+export JTREG_INSTALL=$HOME/apps/jtreg 
+export JT_HOME=$JTREG_INSTALL
+export JTREG_HOME=$JTREG_INSTALL
+export PRODUCT_HOME=$SOURCE_CODE/jdk9/build/linux-x86_64-normal-server-release/images/jdk
+export JPRT_JTREG_HOME=${JT_HOME}
+export JPRT_JAVA_HOME=${PRODUCT_HOME}
+export JTREG_TIMEOUT_FACTOR=5
+export CONCURRENCY=4
